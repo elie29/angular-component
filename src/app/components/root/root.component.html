@@ -1,0 +1,52 @@
+<!-- Ajout d'un article -->
+<form class="ui large form segment">
+  <h3 class="ui header">Add a Link</h3>
+  <div class="field">
+    <label for="title">Title:</label>
+    <input name="title" placeholder="e.g. Angular 5" id="title"/>
+  </div>
+  <div class="field">
+    <label for="link">Link:</label>
+    <input name="link" placeholder="e.g. http://angular.io" id="link"/>
+  </div>
+  <button class="ui positive right floated button">Submit link</button>
+</form>
+
+<!-- Liste des article ajoutés -->
+<div class="ui grid articles">
+  <!-- Article 1 -->
+  <div class="row">
+    <div class="four wide column center aligned votes">
+      <div class="ui statistic">
+        <div class="value">5</div>
+        <div class="label">Points</div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+      <a class="ui large header" href="//angular.io" target="_blank">Angular 5</a>
+      <div class="meta">(angular.io)</div>
+      <ul class="ui big horizontal list voters">
+        <li class="item"><a href><i class="arrow up icon"></i>upvote</a></li>
+        <li class="item"><a href><i class="arrow down icon"></i>downvote</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="row">
+    <div class="four wide column center aligned votes">
+      <div class="ui statistic">
+        <div class="value">6</div>
+        <div class="label">Points</div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+      <a class="ui large header" href="//www.typescriptlang.org" target="_blank">Typescript</a>
+      <div class="meta">(typescriptlang.org)</div>
+      <ul class="ui big horizontal list voters">
+        <li class="item"><a href><i class="arrow up icon"></i>upvote</a></li>
+        <li class="item"><a href><i class="arrow down icon"></i>downvote</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
