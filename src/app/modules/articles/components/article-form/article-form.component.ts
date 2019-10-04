@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './article-form.component.html',
   styleUrls: ['./article-form.component.scss']
 })
-export class ArticleFormComponent {}
+export class ArticleFormComponent {
+  addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
+    console.log(title.value, link.value);
+  }
+}

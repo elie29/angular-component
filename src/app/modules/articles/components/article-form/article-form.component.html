@@ -3,11 +3,15 @@
   <h3 class="ui header">Add a Link</h3>
   <div class="field">
     <label for="title">Title:</label>
-    <input name="title" placeholder="e.g. Angular 5" id="title"/>
+    <input name="title" placeholder="e.g. Angular 5" id="title" #title/>
   </div>
   <div class="field">
     <label for="link">Link:</label>
-    <input name="link" placeholder="e.g. http://angular.io" id="link"/>
+    <input name="link" placeholder="e.g. http://angular.io" id="link" #link/>
   </div>
-  <button class="ui positive right floated button">Submit link</button>
+  <!-- type button or return false in addArticle -->
+  <button class="ui positive right floated button"
+    type="button"
+    (click)="addArticle(title, link)"
+  >Submit link</button>
 </form>
