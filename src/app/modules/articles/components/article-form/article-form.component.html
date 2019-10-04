@@ -1,5 +1,5 @@
 <!-- Ajout d'un article -->
-<form class="ui large form segment">
+<form class="ui large form segment" (ngSubmit)="addArticle(title, link)">
   <h3 class="ui header">Add a Link</h3>
   <div class="field">
     <label for="title">Title:</label>
@@ -9,9 +9,5 @@
     <label for="link">Link:</label>
     <input name="link" placeholder="e.g. http://angular.io" id="link" #link/>
   </div>
-  <!-- type button or return false in addArticle -->
-  <button class="ui positive right floated button"
-    type="button"
-    (click)="addArticle(title, link)"
-  >Submit link</button>
+  <button class="ui positive right floated button" type="submit">Submit link</button>
 </form>
