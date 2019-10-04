@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  HostBinding
+  HostBinding,
+  DoCheck,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import { Article } from '../../services/article.model';
@@ -13,8 +15,21 @@ import { Article } from '../../services/article.model';
   styleUrls: ['./article-item-votes.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush // article is not refreshed unless its reference changes
 })
-export class ArticleItemVotesComponent {
+export class ArticleItemVotesComponent implements DoCheck {
   @Input() article: Article;
 
   @HostBinding('attr.class') css = 'four wide column center aligned votes';
+
+  private votes: number;
+
+  constructor(private cd: ChangeDetectorRef) {}
+
+  // Interested in votes only
+  ngDoCheck(): void {
+    const votes = this.article.getVotes();
+    if (this.votes !== votes) {
+      this.votes = votes;
+      this.cd.detectChanges();
+    }
+  }
 }
