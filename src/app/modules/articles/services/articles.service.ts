@@ -15,4 +15,13 @@ export class ArticlesService {
     // immutable add
     this.articles = [...this.articles, article];
   }
+
+  public remove(article: Article): void {
+    // make a copy for immutability change
+    const articles = [...this.articles];
+    // delete the first article found
+    articles.splice(articles.indexOf(article), 1);
+    // assign again articles
+    this.articles = articles;
+  }
 }

@@ -20,4 +20,8 @@ export class ArticlesComponent {
   onAddedArticle({ title, link: href }: { title: string; link: string }): void {
     this.articlesService.add(new Article(title, href));
   }
+
+  onRemoved(article: Article): void {
+    this.articlesService.remove(article);
+  }
 }

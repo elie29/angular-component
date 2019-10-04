@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output
+} from '@angular/core';
+
 import { Article } from '../../services/article.model';
 
 @Component({
@@ -10,6 +17,7 @@ export class ArticleItemComponent {
   @HostBinding('attr.class') css = 'row';
 
   @Input() article: Article;
+  @Output() removedArticle = new EventEmitter<Article>();
 
   upvote(): false {
     this.article.upvote();
@@ -18,6 +26,11 @@ export class ArticleItemComponent {
 
   downvote(): false {
     this.article.downvote();
+    return false;
+  }
+
+  delete(): false {
+    this.removedArticle.emit(this.article);
     return false;
   }
 }
