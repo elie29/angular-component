@@ -1,7 +1,6 @@
 <app-article-form></app-article-form>
 
 <div class="ui grid articles">
-  <app-article-item></app-article-item>
-  <app-article-item></app-article-item>
-  <app-article-item></app-article-item>
+  <!-- ngFor is part of CommonModule -->
+  <app-article-item *ngFor="let number of [0, 1, 2]"></app-article-item>
 </div>
