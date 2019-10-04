@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -10,10 +11,12 @@ import {
 @Component({
   selector: 'app-article-form',
   templateUrl: './article-form.component.html',
-  styleUrls: ['./article-form.component.scss']
+  styleUrls: ['./article-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush // better to have it even no inputs here
 })
 export class ArticleFormComponent implements OnInit {
   @Output() addedArticle = new EventEmitter<{ title: string; link: string }>();
+
   @ViewChild('title', { static: true }) title: ElementRef;
   @ViewChild('link', { static: false }) link: ElementRef;
 

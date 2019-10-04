@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   HostBinding,
@@ -11,7 +12,8 @@ import { Article } from '../../services/article.model';
 @Component({
   selector: 'app-article-item',
   templateUrl: './article-item.component.html',
-  styleUrls: ['./article-item.component.scss']
+  styleUrls: ['./article-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticleItemComponent {
   @HostBinding('attr.class') css = 'row';
