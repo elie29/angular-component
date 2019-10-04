@@ -7,6 +7,19 @@ export class ArticlesService {
     new Article('Typescript', 'https://www.typescriptlang.org', 2)
   ];
 
+  // For change detection purpose
+  constructor() {
+    for (let i = 0; i < 97; i += 1) {
+      this.articles.push(
+        new Article(
+          'Article ' + (i + 3),
+          'http://google.fr',
+          Math.floor(Math.random() * 30)
+        )
+      );
+    }
+  }
+
   public getArticles(): Article[] {
     return this.articles;
   }
