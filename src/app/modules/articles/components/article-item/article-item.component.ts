@@ -19,15 +19,17 @@ export class ArticleItemComponent {
   @HostBinding('attr.class') css = 'row';
 
   @Input() article: Article;
+  @Output() upvoteArticle = new EventEmitter<Article>();
+  @Output() downvoteArticle = new EventEmitter<Article>();
   @Output() removedArticle = new EventEmitter<Article>();
 
   upvote(): false {
-    this.article.upvote();
+    this.upvoteArticle.emit(this.article);
     return false; // required when href exists on a tag
   }
 
   downvote(): false {
-    this.article.downvote();
+    this.downvoteArticle.emit(this.article);
     return false;
   }
 

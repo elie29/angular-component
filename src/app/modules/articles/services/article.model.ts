@@ -18,11 +18,7 @@ export class Article {
     return this.votes;
   }
 
-  upvote(): void {
-    this.votes++;
-  }
-
-  downvote(): void {
-    this.votes--;
+  changeVote(vote: 1 | -1): Article {
+    return new Article(this.title, this.link, this.votes + vote);
   }
 }
