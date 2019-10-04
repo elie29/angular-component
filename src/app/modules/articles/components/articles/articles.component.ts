@@ -24,4 +24,9 @@ export class ArticlesComponent {
   onRemoved(article: Article): void {
     this.articlesService.remove(article);
   }
+
+  upvote(): false {
+    this.articlesService.upvote();
+    return false;
+  }
 }

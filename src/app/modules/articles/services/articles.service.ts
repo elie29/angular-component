@@ -37,4 +37,15 @@ export class ArticlesService {
     // assign again articles
     this.articles = articles;
   }
+
+  public upvote(): void {
+    // immutable change of vote
+    this.articles = this.articles.map(article => {
+      return new Article(
+        article.getTitle(),
+        article.getLink(),
+        article.getVotes() + 1
+      );
+    });
+  }
 }
