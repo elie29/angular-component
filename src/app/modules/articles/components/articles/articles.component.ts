@@ -26,4 +26,16 @@ export class ArticlesComponent {
       points: 3
     }
   ];
+
+  /**
+   * Destructuring event into title and link. link is renamed href
+   */
+  onAddedArticle({ title, link: href }: { title: string; link: string }): void {
+    this.articles.push({
+      title,
+      meta: href.replace(/^(https?):\/\//, '').split('/')[0],
+      href,
+      points: 0
+    });
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-article-form',
@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./article-form.component.scss']
 })
 export class ArticleFormComponent {
-  addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
-    console.log(title.value, link.value);
+  @Output() addedArticle = new EventEmitter<{ title: string; link: string }>();
+
+  addArticle(title: string, link: string): void {
+    if (title && link) {
+      this.addedArticle.emit({ title, link });
+    }
   }
 }
