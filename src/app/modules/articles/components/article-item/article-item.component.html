@@ -1,9 +1,5 @@
-<div class="four wide column center aligned votes">
-  <div class="ui statistic">
-    <div class="value">{{ article.getVotes() }}</div>
-    <div class="label">Points</div>
-  </div>
-</div>
+<app-article-item-votes [article]="article"></app-article-item-votes>
+
 <div class="twelve wide column">
   <a class="ui large header" href="{{ article.getLink() }}" target="_blank">{{ article.getTitle() }}</a>
   <div class="meta">{{ article.getMeta() }}</div>
