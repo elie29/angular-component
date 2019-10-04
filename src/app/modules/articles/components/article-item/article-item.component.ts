@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-article-item',
@@ -8,12 +8,7 @@ import { Component, HostBinding } from '@angular/core';
 export class ArticleItemComponent {
   @HostBinding('attr.class') css = 'row';
 
-  article = {
-    title: 'Angular',
-    meta: '(angular.io)',
-    href: '//angular.io',
-    points: 5
-  };
+  @Input() article: any;
 
   upvote(): false {
     this.article.points++;

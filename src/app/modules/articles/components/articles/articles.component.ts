@@ -5,4 +5,25 @@ import { Component } from '@angular/core';
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.scss']
 })
-export class ArticlesComponent {}
+export class ArticlesComponent {
+  articles = [
+    {
+      title: 'Angular 5',
+      meta: 'angular.io',
+      href: 'http://angular.io',
+      points: 5
+    },
+    {
+      title: 'Javascript',
+      meta: 'eloquentjavascript.net',
+      href: 'http://eloquentjavascript.net',
+      points: 9
+    },
+    {
+      title: 'Typescript',
+      meta: 'typescriptlang.org',
+      href: 'https://www.typescriptlang.org',
+      points: 3
+    }
+  ];
+}

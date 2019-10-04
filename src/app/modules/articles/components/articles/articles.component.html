@@ -2,5 +2,5 @@
 
 <div class="ui grid articles">
   <!-- ngFor is part of CommonModule -->
-  <app-article-item *ngFor="let number of [0, 1, 2]"></app-article-item>
+  <app-article-item *ngFor="let article of articles" [article]="article"></app-article-item>
 </div>
