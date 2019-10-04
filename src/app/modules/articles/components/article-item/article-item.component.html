@@ -1,12 +1,12 @@
 <div class="four wide column center aligned votes">
   <div class="ui statistic">
-    <div class="value">{{ article.points }}</div>
+    <div class="value">{{ article.getVotes() }}</div>
     <div class="label">Points</div>
   </div>
 </div>
 <div class="twelve wide column">
-  <a class="ui large header" href="{{ article.href }}" target="_blank">{{ article.title }}</a>
-  <div class="meta">{{ article.meta }}</div>
+  <a class="ui large header" href="{{ article.getLink() }}" target="_blank">{{ article.getTitle() }}</a>
+  <div class="meta">{{ article.getMeta() }}</div>
   <ul class="ui big horizontal list voters">
     <li class="item"><a href (click)="upvote()"><i class="arrow up icon"></i>upvote</a></li>
     <li class="item"><a href (click)="downvote()"><i class="arrow down icon"></i>downvote</a></li>

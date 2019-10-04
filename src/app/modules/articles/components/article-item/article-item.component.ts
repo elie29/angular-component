@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
+import { Article } from '../../services/article.model';
 
 @Component({
   selector: 'app-article-item',
@@ -8,15 +9,15 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class ArticleItemComponent {
   @HostBinding('attr.class') css = 'row';
 
-  @Input() article: any;
+  @Input() article: Article;
 
   upvote(): false {
-    this.article.points++;
+    this.article.upvote();
     return false; // required when href exists on a tag
   }
 
   downvote(): false {
-    this.article.points--;
+    this.article.downvote();
     return false;
   }
 }

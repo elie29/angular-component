@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ArticlesService } from '../../services/articles.service';
+import { Article } from '../../services/article.model';
 
 @Component({
   selector: 'app-articles',
@@ -6,36 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent {
-  articles = [
-    {
-      title: 'Angular 5',
-      meta: 'angular.io',
-      href: 'http://angular.io',
-      points: 5
-    },
-    {
-      title: 'Javascript',
-      meta: 'eloquentjavascript.net',
-      href: 'http://eloquentjavascript.net',
-      points: 9
-    },
-    {
-      title: 'Typescript',
-      meta: 'typescriptlang.org',
-      href: 'https://www.typescriptlang.org',
-      points: 3
-    }
-  ];
+  constructor(private articlesService: ArticlesService) {}
+
+  get articles(): Article[] {
+    return this.articlesService.getArticles();
+  }
 
   /**
    * Destructuring event into title and link. link is renamed href
    */
   onAddedArticle({ title, link: href }: { title: string; link: string }): void {
-    this.articles.push({
-      title,
-      meta: href.replace(/^(https?):\/\//, '').split('/')[0],
-      href,
-      points: 0
-    });
+    this.articlesService.add(new Article(title, href));
   }
 }
