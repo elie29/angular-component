@@ -18,7 +18,7 @@ export class ArticlesService {
   }
 
   public remove(item: Article): void {
-    // immutable remove
+    // immutable remove : article reference is so far unique because of immutability. Better search would be on article ID
     this.articles = this.articles.filter(article => article !== item);
   }
 
